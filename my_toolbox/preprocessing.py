@@ -11,12 +11,12 @@ def get_data(df, target_column):
 
 def quick_ohe(df, column):
     encoder = OneHotEncoder(sparse=False)
-    encoded_columns = encoder.fit_transform(df[column])
+    encoded_columns = encoder.fit_transform(df[[column]])
 
     return encoded_columns
 
 def quick_ohe_binary(df, column):
     encoder = OneHotEncoder(drop='if_binary', sparse=False)
-    df[column] = encoder.fit_transform(df[column])
+    df[column] = encoder.fit_transform(df[[column]])
 
     return df
